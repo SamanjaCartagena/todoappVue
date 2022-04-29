@@ -27,8 +27,8 @@
           <span :class="finished">{{task.name}}</span>
           </td>
       <td style="width:120px" scope="col">
-          <span class="pointer" @click="changeStatus(index)">
-              {{firstCharUpper(task.status)}}
+          <span class="pointer" @click="changeStatus(index)" >
+              {{task.status.toString().charAt(0).toUpperCase()+task.status.toString().slice(1)}}
               
               </span>
           </td>
@@ -62,7 +62,6 @@ export default {
        return {
            task:'',
            editedTask:null,
-           taskStatus1:'',
            availableStatuses:['to-do', 'in-progress', 'finished'],
            tasks:[
                {
@@ -77,12 +76,12 @@ export default {
        }
    }, 
    created(){
-     console.log(this.taskStatus1)
+     
    },
    computed:{
-    firstCharUpper(str){
-      return str.charAt(0).toUpperCase() + str.slice(1)
-      }
+  
+   
+ 
    },
    methods:{
        submitTask(){
